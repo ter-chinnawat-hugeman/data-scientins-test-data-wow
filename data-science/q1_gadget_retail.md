@@ -72,7 +72,7 @@ SELECT
         AS cart_to_purchase_cvr
 FROM traffic_events
 GROUP BY campaign_source;
-
+```
 ---
 
 ## 2.3 Product Relationship Analysis (Frequently Bought Together)
