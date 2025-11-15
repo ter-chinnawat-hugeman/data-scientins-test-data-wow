@@ -60,17 +60,18 @@ Analyze traffic sources using `campaign_source`:
 
 Using SQL to agregate data by chanel to see which source drive the traffic 
 For ex.
+    ```sql
     SELECT
     campaign_source,
     COUNT(*) AS sessions,
-    SUM(CASE WHEN added_to_cart = true THEN 1 ELSE 0 END) AS carts,
-    SUM(CASE WHEN purchased = true THEN 1 ELSE 0 END) AS purchases,
-    SUM(CASE WHEN purchased = true THEN revenue ELSE 0 END) AS total_revenue,
-    SUM(CASE WHEN purchased = true THEN 1 ELSE 0 END)::float /
-    NULLIF(SUM(CASE WHEN added_to_cart = true THEN 1 ELSE 0 END), 0) 
+    SUM(CASE WHEN added_to_cart = TRUE THEN 1 ELSE 0 END) AS carts,
+    SUM(CASE WHEN purchased = TRUE THEN 1 ELSE 0 END) AS purchases,
+    SUM(CASE WHEN purchased = TRUE THEN revenue ELSE 0 END) AS total_revenue,
+    SUM(CASE WHEN purchased = TRUE THEN 1 ELSE 0 END)::float /
+        NULLIF(SUM(CASE WHEN added_to_cart = TRUE THEN 1 ELSE 0 END), 0)
         AS cart_to_purchase_cvr
-    FROM traffic_events
-    GROUP BY campaign_source;
+FROM traffic_events
+GROUP BY campaign_source;
 
 ---
 
