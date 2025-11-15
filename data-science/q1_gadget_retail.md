@@ -60,7 +60,7 @@ Analyze traffic sources using `campaign_source`:
 
 Using SQL to agregate data by chanel to see which source drive the traffic 
 For ex.
-    ```sql
+    ```
     SELECT
     campaign_source,
     COUNT(*) AS sessions,
@@ -72,7 +72,7 @@ For ex.
         AS cart_to_purchase_cvr
 FROM traffic_events
 GROUP BY campaign_source;
-
+```
 ---
 
 ## 2.3 Product Relationship Analysis (Frequently Bought Together)
